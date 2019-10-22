@@ -47,7 +47,6 @@ class HomeFragment : Fragment() {
         newsFragment, weatherFragment, jokeFragment)
     var titles = listOf("美图", "新闻", "天气", "笑话")
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -87,7 +86,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun getPageTitle(position: Int): CharSequence? {
-                return titles.get(position)
+                return titles[position]
             }
         }
 

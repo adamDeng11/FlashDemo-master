@@ -11,8 +11,11 @@ import androidx.navigation.ui.setupWithNavController
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //使用闪屏优化，再切回原有主题
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -24,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        
         navView.setupWithNavController(navController)
 
     }

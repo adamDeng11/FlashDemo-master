@@ -19,7 +19,9 @@ import android.Manifest.permission.CALL_PHONE
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.R
+import android.app.Person
 import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_notifications.*
 import pub.devrel.easypermissions.AfterPermissionGranted
 
 
@@ -29,6 +31,7 @@ class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     private lateinit var permissionBtn:Button
     private val TAG = "MainFragment"
     private val RC_SMS_PERM = 122
+    private lateinit var dataTestBtn:Button
 
 
     override fun onCreateView(
@@ -40,9 +43,9 @@ class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
             ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
         val root = inflater.inflate(com.testleancould.dodo.flashdemo.R.layout.fragment_notifications, container, false)
         permissionBtn=root.findViewById(com.testleancould.dodo.flashdemo.R.id.btn_permission)
-        permissionBtn.setOnClickListener { smsTask()}
-
-
+        dataTestBtn=root.findViewById(com.testleancould.dodo.flashdemo.R.id.btn_dataTest)
+        permissionBtn.setOnClickListener { smsTask()
+        }
         return root
     }
     /*检查权限是否存在，不存在就请求*/
@@ -50,7 +53,7 @@ class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
         if (EasyPermissions.hasPermissions(context, permission.READ_SMS)) {
             // Have permission, do the thing!
-            Toast.makeText(activity, "TODO: SMS things", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "权限已经存在", Toast.LENGTH_LONG).show()
         } else {
             // Request one permission
             EasyPermissions.requestPermissions(

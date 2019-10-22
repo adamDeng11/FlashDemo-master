@@ -25,6 +25,7 @@ import java.util.ArrayList
 //创建构造函数
 class MessageAdapter : PagedListAdapter<Message.ResultBean, MessageAdapter.VH>(resultBeanItemCallback) {
     private var context: Context? = null
+    private lateinit var onItemClick:OnItemClick
     //② 创建ViewHolder
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var name: TextView
@@ -40,6 +41,14 @@ class MessageAdapter : PagedListAdapter<Message.ResultBean, MessageAdapter.VH>(r
 
     }
 
+    fun setOnItemClickListener(onItemClick:OnItemClick){
+        this.onItemClick=onItemClick
+    }
+
+    interface OnItemClick{
+        fun onItemClick(position: Int)
+    }
+
     //③ 在Adapter中实现3个方法
     override fun onBindViewHolder(holder: VH, position: Int) {
 
@@ -47,12 +56,12 @@ class MessageAdapter : PagedListAdapter<Message.ResultBean, MessageAdapter.VH>(r
         val resultBean = getItem(position)
         holder.name.text = resultBean!!.title
         holder.time.text=resultBean!!.passtime
-
-
         context?.let {
             GlideApp.with(it).load(resultBean!!.image)
                 .into(holder.photo)
         }
+
+        holder.name.setOnClickListener { onItemClick.onItemClick(position) }
 
     }
 

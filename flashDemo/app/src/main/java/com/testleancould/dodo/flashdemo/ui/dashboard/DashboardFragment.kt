@@ -1,7 +1,5 @@
 package com.testleancould.dodo.flashdemo.ui.dashboard
 
-import android.net.Uri
-import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -9,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.bumptech.glide.Glide
 import com.testleancould.dodo.flashdemo.GlideApp
 
 import android.os.Message
@@ -51,9 +47,9 @@ class DashboardFragment : Fragment() {
     ): View? {
         dashboardViewModel =
             ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val view = inflater.inflate(com.testleancould.dodo.flashdemo.R.layout.fragment_dashboard, container, false)
-        testBtn=view.findViewById(com.testleancould.dodo.flashdemo.R.id.btn_test2)
-        testImage=view.findViewById(com.testleancould.dodo.flashdemo.R.id.image_test2)
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        testBtn=view.findViewById(R.id.btn_test2)
+        testImage=view.findViewById(R.id.image_test2)
 
         testBtn.setOnClickListener {
             Thread(Runnable {
@@ -63,7 +59,6 @@ class DashboardFragment : Fragment() {
                 //然后将消息发送出去
                 handler.sendMessage(message)
             }).start()
-
 
             }
 

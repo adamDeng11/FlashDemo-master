@@ -1,29 +1,25 @@
 package com.testleancould.dodo.flashdemo.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.testleancould.dodo.flashdemo.GlideApp
 import com.testleancould.dodo.flashdemo.adapter.MessageAdapter
-import com.testleancould.dodo.flashdemo.net.NewsService
 import com.testleancould.dodo.flashdemo.viewmodel.MessageViewModel
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import androidx.recyclerview.widget.OrientationHelper
 
 import com.testleancould.dodo.flashdemo.ui.decoration.ItemDecoration
+import com.testleancould.dodo.flashdemo.R
+import com.testleancould.dodo.flashdemo.activity.NewsItemActivity
 
 
 /**
@@ -45,24 +41,24 @@ class NewsFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
-        val view=inflater.inflate(com.testleancould.dodo.flashdemo.R.layout.fragment_news, container, false)
-
-       /* testBtn=view.findViewById(R.id.btn_test)
-        testImagview=view.findViewById(R.id.image_test) as ImageView
-
-        testBtn.setOnClickListener {
-            val url = "http://wimg.spriteapp.cn/profile/large/2018/08/14/5b721ea4242da_mini.jpg"
-            Log.i("adam",url)
-            GlideApp.with(this).load(url).error(R.mipmap.head_show).placeholder(R.mipmap.my_ico).into(testImagview) }*/
-
-
-
-
-        recyclerView=view.findViewById(com.testleancould.dodo.flashdemo.R.id.news_recycleView)
+        val view=inflater.inflate(R.layout.fragment_news, container, false)
+        recyclerView=view.findViewById(R.id.news_recycleView)
         messageAdapter= MessageAdapter()
         messageViewModel = ViewModelProviders.of(this).get(MessageViewModel::class.java)
         messageViewModel.pagedListLiveData.observe(this, Observer { messageAdapter.submitList(it) })
-
+        messageAdapter.setOnItemClickListener(object : MessageAdapter.OnItemClick{
+           override fun onItemClick(position: Int) {
+              /* var fm=activity?.supportFragmentManager
+               var fragment=NewsItemFragment()
+               fm?.beginTransaction()?.replace(R.id.container,fragment)?.commit()*/
+               var intent=Intent()
+               intent.setClass(activity, NewsItemActivity().javaClass)
+               var bundle=Bundle()
+               bundle.putString("position",position.toString())
+               intent.putExtra("data",bundle)
+               startActivity(intent)
+            }
+        })
         recyclerView.adapter = messageAdapter
 
         val linearLayoutManager = LinearLayoutManager(context)
@@ -74,8 +70,6 @@ class NewsFragment : Fragment(){
                 it
             )
         }
-
-
 
         return view
     }
