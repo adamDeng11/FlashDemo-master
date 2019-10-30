@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin:'kotlin-kapt'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -26,7 +26,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -41,8 +41,8 @@ dependencies {
     //将刚才添加的retrofit依赖库中的retrofit替换成converter-gson即可
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     //glide图片加载，kotlin中要用kapt注解
-    kapt'com.github.bumptech.glide:compiler:4.9.0'
-    implementation"com.github.bumptech.glide:glide:4.9.0"
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation "com.github.bumptech.glide:glide:4.9.0"
     //paging依赖
     implementation 'android.arch.paging:runtime:1.0.1'
     //viewmodel和livedata

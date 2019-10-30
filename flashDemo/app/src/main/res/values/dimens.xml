@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="recycleView_title">15sp</dimen>
+    <dimen name="layoutMargin_10">10dp</dimen>
+    <dimen name="weather_cardView">15sp</dimen>
 </resources>

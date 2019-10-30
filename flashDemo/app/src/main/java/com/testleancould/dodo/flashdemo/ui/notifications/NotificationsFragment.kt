@@ -20,6 +20,7 @@ import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.R
 import android.app.Person
+import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import pub.devrel.easypermissions.AfterPermissionGranted
@@ -60,6 +61,7 @@ class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
                 this, "请求SMS权限",
                 RC_SMS_PERM, permission.READ_SMS
             )
+            Log.i("ssss","sss")
         }
     }
 
