@@ -5,4 +5,9 @@
     <dimen name="recycleView_title">15sp</dimen>
     <dimen name="layoutMargin_10">10dp</dimen>
     <dimen name="weather_cardView">15sp</dimen>
+    <dimen name="weather_details1">20sp</dimen>
+    <dimen name="weather_details2">15sp</dimen>
+    <dimen name="weather_details_margin">10sp</dimen>
+    <dimen name="iv_details">30dp</dimen>
+    <dimen name="weather_detail_alpha">0.5</dimen>
 </resources>

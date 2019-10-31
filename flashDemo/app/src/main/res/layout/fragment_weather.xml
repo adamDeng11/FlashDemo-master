@@ -5,10 +5,11 @@
     android:gravity="center_horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="#3F3C3C"
+    <!--向里圆角，向里填充阴影，开启填充会将阴影内容填充-->
+    <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="#4D256963"
             android:layout_width="match_parent"
-            app:cardCornerRadius="10dp"
+            app:cardCornerRadius="6dp"
             android:layout_height="150dp"
             android:layout_margin="20dp">
             <LinearLayout
@@ -127,9 +128,16 @@
         </androidx.cardview.widget.CardView>
     <com.testleancould.dodo.flashdemo.ui.fallingview.FallingView
         android:id="@+id/fallingView"
-        android:background="#468681"
+        android:background="@mipmap/weather_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </com.testleancould.dodo.flashdemo.ui.fallingview.FallingView>
+    <LinearLayout
+        android:background="#05FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical">
+        <include layout="@layout/weather_details"/>
+    </LinearLayout>
 </FrameLayout>

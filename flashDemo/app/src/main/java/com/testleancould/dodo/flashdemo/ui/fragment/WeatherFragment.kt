@@ -15,9 +15,11 @@ import com.testleancould.dodo.flashdemo.R
 import com.testleancould.dodo.flashdemo.bean.Basic
 import com.testleancould.dodo.flashdemo.bean.HeWeather6
 import com.testleancould.dodo.flashdemo.bean.WeatherBean
+import com.testleancould.dodo.flashdemo.net.callback.RequestCallback
 import com.testleancould.dodo.flashdemo.ui.fallingview.FallObject
 import com.testleancould.dodo.flashdemo.ui.fallingview.FallingView
 import com.testleancould.dodo.flashdemo.util.WeatherRequest
+import kotlinx.android.synthetic.main.fragment_weather.*
 import retrofit2.Response
 
 
@@ -66,7 +68,6 @@ class WeatherFragment : Fragment(){
             .build()
         fallingView = view.findViewById(R.id.fallingView) as FallingView
         fallingView.addFallObject(fallObject, 100)//添加50个下落物体对象
-
         searchCityBtn.setOnClickListener {
             var intent=Intent(activity,SearchCityActivity::class.java)
             startActivityForResult(intent,1)
@@ -80,7 +81,7 @@ class WeatherFragment : Fragment(){
             1 -> if (resultCode === RESULT_OK) {
                 returnedData = data!!.getStringExtra("data_return")
                 requestWeather= WeatherRequest()
-                requestWeather.requestWeather(returnedData,object :WeatherRequest.CallBack{
+                requestWeather.requestWeather(returnedData,object :RequestCallback{
                     override fun onResult(weatherBean: Response<WeatherBean>) {
                         var now=weatherBean.body()!!.HeWeather6[0].now
                         cityTv.text=weatherBean.body()!!.HeWeather6[0].basic.location
@@ -91,6 +92,15 @@ class WeatherFragment : Fragment(){
                         pcpnTV.text=now.pcpn+"mm"
                         humTv.text=now.hum+"%"
                         presTv.text=now.pres+"hPa"
+
+                        weather_temp.text=now.tmp+"℃"
+                        weather_pcpn.text=now.pcpn+"mm"
+                        weather_hum.text=now.hum+"%"
+                        weather_pre.text=now.pres+"hPa"
+                        weather_vis.text=now.vis+"km"
+
+
+
                     }
                 })
 

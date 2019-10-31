@@ -1,7 +1,5 @@
 package com.testleancould.dodo.flashdemo.data
 
-import android.util.Log
-import androidx.lifecycle.Observer
 import androidx.paging.PositionalDataSource
 import com.testleancould.dodo.flashdemo.bean.Message
 import com.testleancould.dodo.flashdemo.net.NewsService
@@ -46,7 +44,7 @@ class MessageDataSource : PositionalDataSource<Message.ResultBean>() {
 
         fetchItem(params.startPosition, params.loadSize, object : Callback {
             override fun onResult(value: Message) {
-                Log.i("result","11111111111111111111111111111111111111111111111")
+
                 callback.onResult(value.result as MutableList<Message.ResultBean>)
 
 
