@@ -17,9 +17,7 @@ import android.R
 import com.bumptech.glide.Glide
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.annotation.NonNull
-
-
-
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 
 /**
@@ -44,8 +42,6 @@ class PhotoAdapter : PagedListAdapter<Photo.ResultBean, PhotoAdapter.VH>(resultB
             params.height = (200 + Math.random() * 400).toInt()
             photo.layoutParams=params
 
-
-
         }
 
     }
@@ -58,6 +54,8 @@ class PhotoAdapter : PagedListAdapter<Photo.ResultBean, PhotoAdapter.VH>(resultB
 
         context?.let {
             GlideApp.with(it).load(resultBean!!.img)
+                .error(R.mipmap.sym_def_app_icon)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(holder.photo)
         }
 
@@ -77,7 +75,7 @@ class PhotoAdapter : PagedListAdapter<Photo.ResultBean, PhotoAdapter.VH>(resultB
         super.onViewRecycled(holder)
         val imageView = holder.photo
         if (imageView != null) {
-            context?.let { Glide.with(it).clear(imageView) }
+            context?.let { GlideApp.with(it).clear(imageView) }
         }
     }
 

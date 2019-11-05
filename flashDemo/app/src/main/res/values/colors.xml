@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="recycleView_title">#000000</color>
     <color name="weather_cardView">#FFFFFF</color>
+    <color name="tv_robot">#FFFFFF</color>
 </resources>

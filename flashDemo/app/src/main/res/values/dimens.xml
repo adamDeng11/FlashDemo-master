@@ -10,4 +10,5 @@
     <dimen name="weather_details_margin">10sp</dimen>
     <dimen name="iv_details">30dp</dimen>
     <dimen name="weather_detail_alpha">0.5</dimen>
+    <dimen name="imageView_chat">50dp</dimen>
 </resources>

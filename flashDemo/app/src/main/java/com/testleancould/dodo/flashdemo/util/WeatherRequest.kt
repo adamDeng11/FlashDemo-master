@@ -25,12 +25,10 @@ class WeatherRequest {
     private lateinit var weatherData:ArrayList<Basic>
 
     fun requestWeather(location: String,callback:RequestCallback){
-        val call=service!!.getNowWeather(location,"288367e25c264a1bb63aff12da05e278")
+        val call=service.getNowWeather(location,"288367e25c264a1bb63aff12da05e278")
         call.enqueue(object :Callback<WeatherBean>{
             override fun onResponse(call: Call<WeatherBean>, response: Response<WeatherBean>) {
-
                 callback.onResult(response)
-
             }
 
             override fun onFailure(call: Call<WeatherBean>, t: Throwable) {

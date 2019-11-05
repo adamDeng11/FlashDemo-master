@@ -5,4 +5,5 @@
     <string name="title_notifications">我的</string>
     <string name="btn_dataTest">数据类测试</string>
     <string name="txt_news_item">NewsItem里面的内容</string>
+    <string name="btn_send">发送</string>
 </resources>

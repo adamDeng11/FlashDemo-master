@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="forecast"
+            type="com.testleancould.dodo.flashdemo.bean.WeatherForecast" />
+    </data>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_day1"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="21日"
+            android:textColor="@color/weather_cardView"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_day2"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="21日"
+            android:textColor="@color/weather_cardView"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_day3"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="21日"
+            android:textColor="@color/weather_cardView"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_day4"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="21日"
+            android:textColor="@color/weather_cardView"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_day5"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="21日"
+            android:textColor="@color/weather_cardView"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/tv_day6"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="21日"
+            android:textColor="@color/weather_cardView"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+</layout>

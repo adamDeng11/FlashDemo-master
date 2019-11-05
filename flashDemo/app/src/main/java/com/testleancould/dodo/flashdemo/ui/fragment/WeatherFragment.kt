@@ -1,5 +1,6 @@
 package com.testleancould.dodo.flashdemo.ui.fragment
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,8 @@ import com.testleancould.dodo.flashdemo.activity.SearchCityActivity
 import android.app.Activity.RESULT_OK
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
+import com.adam.weatherview.WeatherChartView
 import com.testleancould.dodo.flashdemo.R
 import com.testleancould.dodo.flashdemo.bean.Basic
 import com.testleancould.dodo.flashdemo.bean.HeWeather6
@@ -20,8 +23,8 @@ import com.testleancould.dodo.flashdemo.ui.fallingview.FallObject
 import com.testleancould.dodo.flashdemo.ui.fallingview.FallingView
 import com.testleancould.dodo.flashdemo.util.WeatherRequest
 import kotlinx.android.synthetic.main.fragment_weather.*
+import kotlinx.android.synthetic.main.weather_details.*
 import retrofit2.Response
-
 
 /**
  * Created by adamDeng on 2019/10/9
@@ -29,12 +32,14 @@ import retrofit2.Response
  */
 
 class WeatherFragment : Fragment(){
+    private lateinit var objectAnimator: ObjectAnimator
     private lateinit var searchCityBtn:ImageButton
+    private lateinit var refreshCityBtn:ImageButton
     private lateinit var returnedData: String
     private lateinit var cityTv:TextView
-    private lateinit var data: ArrayList<Basic>
     private lateinit var requestWeather:WeatherRequest
     private lateinit var fallingView: FallingView
+    private lateinit var weatherLine:WeatherChartView
     private lateinit var tempTv:TextView
     private lateinit var condTv:TextView
     private lateinit var windDirTv:TextView
@@ -49,6 +54,7 @@ class WeatherFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         var view=inflater.inflate(R.layout.fragment_weather,container,false)
+        refreshCityBtn=view.findViewById(R.id.btn_cityRefresh)
         searchCityBtn=view.findViewById(R.id.btn_citySearch)
         cityTv=view.findViewById(R.id.txt_city)
         tempTv=view.findViewById(R.id.txt_temp)
@@ -58,7 +64,15 @@ class WeatherFragment : Fragment(){
         pcpnTV=view.findViewById(R.id.txt_pcpn)
         humTv=view.findViewById(R.id.txt_hum)
         presTv=view.findViewById(R.id.txt_pres)
+        fallingView = view.findViewById(R.id.fallingView) as FallingView
+        weatherLine = view.findViewById(R.id.weather_line)
 
+        init()
+
+        return view
+    }
+
+    fun init(){
         //初始化一个雪花样式的fallObject
         val builder = FallObject.Builder(resources.getDrawable(R.drawable.ic_rain))
         val fallObject = builder
@@ -66,14 +80,26 @@ class WeatherFragment : Fragment(){
             .setSize(50, 50, true)
             .setWind(5, true, true)
             .build()
-        fallingView = view.findViewById(R.id.fallingView) as FallingView
         fallingView.addFallObject(fallObject, 100)//添加50个下落物体对象
+
+        // 设置白天温度曲线
+        weatherLine.setTempDay(intArrayOf(4, 23, 11, 22, 34, 35))
+        // 设置夜间温度曲线
+        weatherLine.setTempNight(intArrayOf(3, 2, 7, 21, 34, 12))
+        weatherLine.invalidate()
+
         searchCityBtn.setOnClickListener {
             var intent=Intent(activity,SearchCityActivity::class.java)
             startActivityForResult(intent,1)
         }
+        refreshCityBtn.setOnClickListener{
+            /*refreshCityBtn.animate().rotation(360f).start()*/
+            objectAnimator= ObjectAnimator.ofFloat(btn_cityRefresh,"rotation",360f)
+            objectAnimator.duration=1000
+            objectAnimator.start()
+        }
 
-        return view
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -92,19 +118,13 @@ class WeatherFragment : Fragment(){
                         pcpnTV.text=now.pcpn+"mm"
                         humTv.text=now.hum+"%"
                         presTv.text=now.pres+"hPa"
-
                         weather_temp.text=now.tmp+"℃"
                         weather_pcpn.text=now.pcpn+"mm"
                         weather_hum.text=now.hum+"%"
                         weather_pre.text=now.pres+"hPa"
                         weather_vis.text=now.vis+"km"
-
-
-
                     }
                 })
-
-
             }
         }
     }

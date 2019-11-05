@@ -4,16 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <ImageView
-
-        android:id="@+id/image_test2"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
-    <Button
-        android:text="测试"
-        android:id="@+id/btn_test2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView_robot"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#929191"
+        android:orientation="horizontal"
+        android:layout_marginBottom="60dp">
+        <ImageButton
+            android:id="@+id/btn_record"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/record_icon" />
+        <EditText
+            android:id="@+id/edt_messageInput"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_line"
+            android:hint="请输入内容"/>
+        <Button
+            android:text="@string/btn_send"
+            android:id="@+id/btn_send"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>

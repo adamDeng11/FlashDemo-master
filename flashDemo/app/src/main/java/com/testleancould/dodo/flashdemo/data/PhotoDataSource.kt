@@ -44,11 +44,10 @@ class PhotoDataSource : PositionalDataSource<Photo.ResultBean>() {
 
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Photo.ResultBean>) {
 
-        fetchItem(params.startPosition, params.loadSize, object : Callback {
+        fetchItem(0, params.loadSize, object : Callback {
             override fun onResult(value: Photo) {
 
                 callback.onResult(value.result as MutableList<Photo.ResultBean>)
-
 
             }
         })

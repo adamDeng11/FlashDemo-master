@@ -132,12 +132,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </com.testleancould.dodo.flashdemo.ui.fallingview.FallingView>
+
     <LinearLayout
-        android:background="#05FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:background="#05FFFFFF"
         android:orientation="vertical">
-        <include layout="@layout/weather_details"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <include layout="@layout/weather_details" />
+                <include layout="@layout/weather_7days"/>
+                <com.adam.weatherview.WeatherChartView
+                    android:id="@+id/weather_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"/>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
+
 </FrameLayout>

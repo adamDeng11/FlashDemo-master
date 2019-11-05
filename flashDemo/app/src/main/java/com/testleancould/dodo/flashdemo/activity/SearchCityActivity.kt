@@ -45,6 +45,7 @@ class SearchCityActivity : AppCompatActivity() {
         searchView=findViewById(R.id.searchView)
         cityRecyclerView=findViewById(R.id.recycleView_city)
         data=ArrayList()
+
         cityAdapter=CityAdapter(this,data)
         cityRecyclerView.adapter=cityAdapter
         val linearLayoutManager = LinearLayoutManager(this)
@@ -59,10 +60,6 @@ class SearchCityActivity : AppCompatActivity() {
             override fun onItemClick(position: Int) {
                 var intent=Intent()
                 intent.setClass(this@SearchCityActivity,MainActivity::class.java)
-                var bundle=Bundle()
-                /*bundle.putString("location",data[position].cid)
-                intent.putExtra("location",bundle)
-                startActivity(intent)*/
                 intent.putExtra("data_return",data[position].cid)
                 setResult(Activity.RESULT_OK,intent)
                 finish()

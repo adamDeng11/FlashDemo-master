@@ -4,7 +4,7 @@ package com.testleancould.dodo.flashdemo.bean
  * Created by adamDeng on 2019/10/9
  * Copyright © 2019年 深圳市云歌人工智能技术有限公司. All rights reserved.
  */
-class Message {
+class  Message {
     /**
      * code : 200
      * message : 成功!

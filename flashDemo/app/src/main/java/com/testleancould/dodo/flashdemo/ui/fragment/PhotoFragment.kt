@@ -42,10 +42,8 @@ class PhotoFragment : Fragment() {
         photoViewModel.pagedListLiveData.observe(this, Observer { photoAdapter.submitList(it) })
         recyclerView.adapter=photoAdapter
 
-
         val linearLayoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager=linearLayoutManager
-
 
         return view
 

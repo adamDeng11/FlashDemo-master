@@ -35,8 +35,6 @@ class MessageDataSource : PositionalDataSource<Message.ResultBean>() {
 
             }
         })
-        /*callback.onResult(fetchItems(0, 20), 0, 50)*/
-
 
     }
 
@@ -50,21 +48,7 @@ class MessageDataSource : PositionalDataSource<Message.ResultBean>() {
 
             }
         })
-        /*callback.onResult(fetchItems(params.startPosition, params.loadSize))*/
 
-    }
-
-    private fun fetchItems(startPosition: Int, pageSize: Int): ArrayList<Message.ResultBean> {
-        val list = ArrayList<Message.ResultBean>()
-
-        for (i in startPosition until startPosition + pageSize) {
-
-            val resultBean = Message.ResultBean()
-            resultBean.passtime="passtime$i"
-            resultBean.title="adam$i"
-            list.add(resultBean)
-        }
-        return list
     }
 
     private fun fetchItem(startPosition: Int, size: Int, callback: Callback) {
