@@ -9,12 +9,9 @@ import android.widget.TextView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.testleancould.dodo.flashdemo.GlideApp
 import com.testleancould.dodo.flashdemo.R
 import com.testleancould.dodo.flashdemo.bean.Message
-import java.util.ArrayList
 
 /**
  * Created by adamDeng on 2019/10/9

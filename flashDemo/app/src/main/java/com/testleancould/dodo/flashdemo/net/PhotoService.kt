@@ -13,7 +13,7 @@ import retrofit2.http.POST
  */
 interface PhotoService {
 
-    @POST("getImages")
+    @POST("getImages" )
     @FormUrlEncoded
     fun getPhoto(@Field("page") page: Int, @Field("count") count: Int): Observable<Photo>
 }

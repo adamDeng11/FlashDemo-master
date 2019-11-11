@@ -222,7 +222,7 @@ public class WeatherChartView extends View {
         // 字体画笔
         Paint textPaint = new Paint();
         textPaint.setAntiAlias(true);
-        textPaint.setColor(mTextColor);
+        textPaint.setColor( mTextColor);
         textPaint.setTextSize(mTextSize);
         // 文字居中
         textPaint.setTextAlign(Paint.Align.CENTER);

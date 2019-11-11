@@ -60,7 +60,6 @@ class Singleton{
 //懒汉式（线程不安全，同步代码块）x
 
 
-/*
 //双重检查（推荐）
 class Singleton{
     private static volatile Singleton instance;
@@ -77,7 +76,7 @@ class Singleton{
 
         return instance;
     }
-}*/
+}
 
 /*//静态内部类（推荐）
 class Singleton{
@@ -94,6 +93,7 @@ class Singleton{
     }
 }*/
 
+/*
 //枚举(推荐)避免多线程同步问题，还能防止反序列化重新创建的对象
 enum Singleton{
     //属性
@@ -101,4 +101,4 @@ enum Singleton{
     public void sayOk(){
 
     }
-}
+}*/

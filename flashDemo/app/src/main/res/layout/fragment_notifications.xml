@@ -5,7 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
-
+<com.shuyu.gsyvideoplayer.video.GSYSampleADVideoPlayer
+    android:id="@+id/video_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"/>
   <Button
       android:text="权限申请"
       android:id="@+id/btn_permission"

@@ -1,9 +1,13 @@
 package com.testleancould.dodo.flashdemo.util
 
+import android.util.Log
 import com.testleancould.dodo.flashdemo.bean.Basic
 import com.testleancould.dodo.flashdemo.bean.WeatherBean
+import com.testleancould.dodo.flashdemo.bean.WeatherForecast
+import com.testleancould.dodo.flashdemo.net.WeatherForecastService
 import com.testleancould.dodo.flashdemo.net.WeatherService
 import com.testleancould.dodo.flashdemo.net.callback.RequestCallback
+import com.testleancould.dodo.flashdemo.net.callback.RequestForecastCallBack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +26,7 @@ class WeatherRequest {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
     private var service: WeatherService=retrofit.create(WeatherService::class.java)
-    private lateinit var weatherData:ArrayList<Basic>
+    private var forecastService:WeatherForecastService=retrofit.create(WeatherForecastService::class.java)
 
     fun requestWeather(location: String,callback:RequestCallback){
         val call=service.getNowWeather(location,"288367e25c264a1bb63aff12da05e278")
@@ -33,6 +37,22 @@ class WeatherRequest {
 
             override fun onFailure(call: Call<WeatherBean>, t: Throwable) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
+    }
+
+    fun requestWeatherForecast(location: String,callback: RequestForecastCallBack){
+        val call=forecastService.getWeatherForecast(location,"288367e25c264a1bb63aff12da05e278")
+        call.enqueue(object :Callback<WeatherForecast>{
+            override fun onResponse(
+                call: Call<WeatherForecast>,
+                response: Response<WeatherForecast>
+            ) {
+                callback.onResult(response)
+            }
+
+            override fun onFailure(call: Call<WeatherForecast>, t: Throwable) {
+                Log.i("数据太多","你去死吧！！！！！！！！！！！！！！！！！！！！！！！！")
             }
         })
     }

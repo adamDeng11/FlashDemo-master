@@ -16,7 +16,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageButton
                     android:background="@mipmap/city_search"
@@ -29,14 +29,15 @@
                     android:layout_marginLeft="4dp"
                     android:textSize="20sp"
                     android:textColor="@color/weather_cardView"
-                    android:layout_width="250dp"
-                    android:layout_height="30dp"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"/>
                 <ImageButton
-                    android:background="@mipmap/city_refresh"
                     android:id="@+id/btn_cityRefresh"
+                    android:background="@mipmap/city_refresh"
                     android:layout_width="30dp"
-                    android:layout_height="30dp"/>
-
+                    android:layout_height="30dp"
+                    />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -152,11 +153,34 @@
                     android:id="@+id/weather_line"
                     android:layout_width="match_parent"
                     android:layout_height="100dp" />
+                <include layout="@layout/weather_7status"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <com.adam.weatherview.SunAnimationView
+                    android:id="@+id/sunView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    app:sun_circle_color="#FFFFFF"
+                    app:sun_circle_radius="80"
+                    app:sun_font_color="#FFFFFF"
+                    app:sun_font_size="10sp"/>
+                    <com.adam.weatherview.SunAnimationView
+                        android:id="@+id/moonView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        app:sun_circle_color="#FFFFFF"
+                        app:sun_circle_radius="80"
+                        app:sun_font_color="#FFFFFF"
+                        app:sun_font_size="10sp"/>
+                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="300dp"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
 </FrameLayout>

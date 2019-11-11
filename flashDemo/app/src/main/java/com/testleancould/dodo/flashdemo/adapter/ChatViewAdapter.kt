@@ -24,8 +24,6 @@ class ChatViewAdapter :RecyclerView.Adapter<ChatViewAdapter.ViewHolder>{
     //    对话列表
     private var mlist: List<Chat>? = null
 
-    constructor(){}
-
     constructor(context: Context,list: List<Chat>){
         this.context=context
         this.mlist=list

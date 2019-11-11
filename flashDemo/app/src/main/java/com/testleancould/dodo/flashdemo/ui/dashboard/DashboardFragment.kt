@@ -88,7 +88,7 @@ class DashboardFragment : Fragment() {
 
     private fun request(text: String){
         var perception=Perception(InputText(text))
-        val userInfo=UserInfo("c00282de107144fb940adab994d9ff98","225167")
+        val userInfo=UserInfo("d81c0b99c260440980a140440be200ec","225167")
         var ask=Ask(perception,0,userInfo)
 
          var retrofit = Retrofit.Builder()//创建Retrofit实例

@@ -61,7 +61,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'pub.devrel:easypermissions:1.0.1'
-
+    //第三方视频播放完整版引入
+    implementation 'com.shuyu:GSYVideoPlayer:7.1.1'
 
 }
 kapt {

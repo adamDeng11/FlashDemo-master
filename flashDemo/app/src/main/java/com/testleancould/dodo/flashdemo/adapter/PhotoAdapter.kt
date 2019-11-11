@@ -5,18 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.testleancould.dodo.flashdemo.GlideApp
-import com.testleancould.dodo.flashdemo.bean.Message
 import com.testleancould.dodo.flashdemo.bean.Photo
 import android.app.Activity
-import android.R
-import com.bumptech.glide.Glide
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import androidx.annotation.NonNull
+import com.testleancould.dodo.flashdemo.R
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 
@@ -54,7 +49,7 @@ class PhotoAdapter : PagedListAdapter<Photo.ResultBean, PhotoAdapter.VH>(resultB
 
         context?.let {
             GlideApp.with(it).load(resultBean!!.img)
-                .error(R.mipmap.sym_def_app_icon)
+                .error(R.mipmap.photo_error)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(holder.photo)
         }

@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.MenuItem
 import android.widget.SearchView
+import android.widget.Switch
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
@@ -42,20 +44,13 @@ class SearchCityActivity : AppCompatActivity() {
         setTheme(R.style.AppThemeBack)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_city)
-        searchView=findViewById(R.id.searchView)
-        cityRecyclerView=findViewById(R.id.recycleView_city)
-        data=ArrayList()
 
-        cityAdapter=CityAdapter(this,data)
-        cityRecyclerView.adapter=cityAdapter
-        val linearLayoutManager = LinearLayoutManager(this)
-        linearLayoutManager.orientation = RecyclerView.VERTICAL
-        cityRecyclerView.layoutManager=linearLayoutManager
-        let { ItemDecoration(it, OrientationHelper.VERTICAL) }?.let {
-            cityRecyclerView.addItemDecoration(
-                it
-            )
-        }
+        var actionBar=supportActionBar
+        actionBar?.setHomeButtonEnabled(true)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
+        init()
+
         cityAdapter.setOnItemClickListener(object :CityAdapter.OnItemClick{
             override fun onItemClick(position: Int) {
                 var intent=Intent()
@@ -85,6 +80,33 @@ class SearchCityActivity : AppCompatActivity() {
             }
         })
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when{
+            item!!.itemId==android.R.id.home->this.finish()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun init(){
+        searchView=findViewById(R.id.searchView)
+        cityRecyclerView=findViewById(R.id.recycleView_city)
+        data=ArrayList()
+        cityAdapter=CityAdapter(this,data)
+        cityRecyclerView.adapter=cityAdapter
+        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.orientation = RecyclerView.VERTICAL
+        cityRecyclerView.layoutManager=linearLayoutManager
+        let { ItemDecoration(it, OrientationHelper.VERTICAL) }?.let {
+            cityRecyclerView.addItemDecoration(
+                it
+            )
+        }
+
+    }
+
     fun requestCity(location: String){
         val call = service!!.getCity(location,"288367e25c264a1bb63aff12da05e278","cn")
         call.enqueue(object : Callback<CityBean> {

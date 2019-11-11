@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">flashDemo</string>
+    <string name="app_name">小鬼</string>
+    <string name="weather_search">天气搜索</string>
     <string name="title_home">首页</string>
     <string name="title_dashboard">社区</string>
     <string name="title_notifications">我的</string>
     <string name="btn_dataTest">数据类测试</string>
     <string name="txt_news_item">NewsItem里面的内容</string>
     <string name="btn_send">发送</string>
+    <string name="day">日</string>
 </resources>
