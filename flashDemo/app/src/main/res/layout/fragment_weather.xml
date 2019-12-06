@@ -149,7 +149,7 @@
                 android:orientation="vertical">
                 <include layout="@layout/weather_details" />
                 <include layout="@layout/weather_7days"/>
-                <com.adam.weatherview.WeatherChartView
+                <com.adam.base.weatherview.WeatherChartView
                     android:id="@+id/weather_line"
                     android:layout_width="match_parent"
                     android:layout_height="100dp" />
@@ -158,7 +158,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                <com.adam.weatherview.SunAnimationView
+                <com.adam.base.weatherview.SunAnimationView
                     android:id="@+id/sunView"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
@@ -167,7 +167,7 @@
                     app:sun_circle_radius="80"
                     app:sun_font_color="#FFFFFF"
                     app:sun_font_size="10sp"/>
-                    <com.adam.weatherview.SunAnimationView
+                    <com.adam.base.weatherview.SunAnimationView
                         android:id="@+id/moonView"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"

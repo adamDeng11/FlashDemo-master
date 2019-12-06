@@ -2,25 +2,20 @@ package com.testleancould.dodo.flashdemo.ui.fragment
 
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import androidx.fragment.app.Fragment
-import com.testleancould.dodo.flashdemo.activity.SearchCityActivity
-import android.app.Activity.RESULT_OK
-import android.icu.text.SimpleDateFormat
-import android.text.format.Time
-import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
-import com.adam.weatherview.SunAnimationView
-import com.adam.weatherview.WeatherChartView
+import androidx.fragment.app.Fragment
+import com.adam.base.weatherview.SunAnimationView
+import com.adam.base.weatherview.WeatherChartView
 import com.testleancould.dodo.flashdemo.R
-import com.testleancould.dodo.flashdemo.bean.Basic
-import com.testleancould.dodo.flashdemo.bean.HeWeather6
+import com.testleancould.dodo.flashdemo.activity.SearchCityActivity
 import com.testleancould.dodo.flashdemo.bean.WeatherBean
 import com.testleancould.dodo.flashdemo.bean.WeatherForecast
 import com.testleancould.dodo.flashdemo.net.callback.RequestCallback
@@ -49,7 +44,7 @@ class WeatherFragment : Fragment(){
     private lateinit var requestWeather:WeatherRequest
 
     private lateinit var fallingView: FallingView
-    private lateinit var weatherLine:WeatherChartView
+    private lateinit var weatherLine: WeatherChartView
 
     private lateinit var tempTv:TextView
     private lateinit var condTv:TextView

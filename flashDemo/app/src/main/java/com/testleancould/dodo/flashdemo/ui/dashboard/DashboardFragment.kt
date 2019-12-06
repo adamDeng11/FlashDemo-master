@@ -1,21 +1,15 @@
 package com.testleancould.dodo.flashdemo.ui.dashboard
 
 import android.os.Bundle
-import android.os.Handler
+import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.testleancould.dodo.flashdemo.GlideApp
-
-import android.os.Message
-
-import android.annotation.SuppressLint
-import android.os.TestLooperManager
-import android.text.TextUtils
-import android.util.Log
-import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.testleancould.dodo.flashdemo.R
@@ -71,6 +65,8 @@ class DashboardFragment : Fragment() {
         if (!TextUtils.isEmpty(text)){
             addData(text,1)
             request(text)
+            input.setText("")
+
         }else{
             Log.i("内容为空","空")
         }

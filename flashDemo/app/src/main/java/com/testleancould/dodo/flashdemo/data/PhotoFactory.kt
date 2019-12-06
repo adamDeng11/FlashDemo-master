@@ -2,7 +2,6 @@ package com.testleancould.dodo.flashdemo.data
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import com.testleancould.dodo.flashdemo.bean.Message
 import com.testleancould.dodo.flashdemo.bean.Photo
 
 /**

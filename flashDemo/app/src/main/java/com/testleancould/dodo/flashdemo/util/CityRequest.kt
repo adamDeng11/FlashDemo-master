@@ -1,18 +1,10 @@
 package com.testleancould.dodo.flashdemo.util
 
-import android.app.Activity
-import android.telephony.cdma.CdmaCellLocation
-import android.util.Log
-import android.widget.Toast
 import com.testleancould.dodo.flashdemo.bean.BasicCity
-import com.testleancould.dodo.flashdemo.bean.CityBean
-import com.testleancould.dodo.flashdemo.bean.Photo
 import com.testleancould.dodo.flashdemo.net.CityService
-import io.reactivex.disposables.Disposable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 /**
  * Created by adamDeng on 2019/10/28

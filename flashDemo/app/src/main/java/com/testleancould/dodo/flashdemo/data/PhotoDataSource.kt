@@ -1,16 +1,12 @@
 package com.testleancould.dodo.flashdemo.data
 
-import android.util.Log
 import androidx.paging.PositionalDataSource
-import com.testleancould.dodo.flashdemo.bean.Message
 import com.testleancould.dodo.flashdemo.bean.Photo
-import com.testleancould.dodo.flashdemo.net.NewsService
 import com.testleancould.dodo.flashdemo.net.PhotoService
 import io.reactivex.disposables.Disposable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.ArrayList
 
 /**
  * Created by adamDeng on 2019/10/11

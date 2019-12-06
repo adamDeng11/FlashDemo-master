@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.testleancould.dodo.flashdemo.R
-import com.testleancould.dodo.flashdemo.bean.Basic
 import com.testleancould.dodo.flashdemo.bean.BasicCity
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by adamDeng on 2019/10/28

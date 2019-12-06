@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.testleancould.dodo.flashdemo.R
 import com.testleancould.dodo.flashdemo.bean.Chat
-import kotlinx.android.synthetic.main.chat_item.view.*
 
 /**
  * Created by adamDeng on 2019/11/5

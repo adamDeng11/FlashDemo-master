@@ -1,7 +1,6 @@
 package com.testleancould.dodo.flashdemo.util
 
 import android.util.Log
-import com.testleancould.dodo.flashdemo.bean.Basic
 import com.testleancould.dodo.flashdemo.bean.WeatherBean
 import com.testleancould.dodo.flashdemo.bean.WeatherForecast
 import com.testleancould.dodo.flashdemo.net.WeatherForecastService

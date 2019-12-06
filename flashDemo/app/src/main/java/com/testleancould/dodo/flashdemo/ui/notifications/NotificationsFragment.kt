@@ -1,21 +1,20 @@
 package com.testleancould.dodo.flashdemo.ui.notifications
 
+import android.Manifest.permission
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
-import pub.devrel.easypermissions.EasyPermissions
-import android.Manifest.permission
-import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
-import com.bumptech.glide.load.resource.bitmap.VideoDecoder
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
 import com.testleancould.dodo.flashdemo.R
+import pub.devrel.easypermissions.EasyPermissions
 
 
 class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
@@ -38,9 +37,9 @@ class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
     ): View? {
         notificationsViewModel =
             ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(com.testleancould.dodo.flashdemo.R.layout.fragment_notifications, container, false)
+        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
 
-        videoPlayer=root.findViewById(com.testleancould.dodo.flashdemo.R.id.video_player)
+        videoPlayer=root.findViewById(R.id.video_player)
         var source="http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4"
         videoPlayer.setUp(source,true,"小鬼视频")
         //添加封面
@@ -66,7 +65,8 @@ class NotificationsFragment : Fragment(),EasyPermissions.PermissionCallbacks {
 
         permissionBtn=root.findViewById(com.testleancould.dodo.flashdemo.R.id.btn_permission)
         dataTestBtn=root.findViewById(com.testleancould.dodo.flashdemo.R.id.btn_dataTest)
-        permissionBtn.setOnClickListener { smsTask()
+        permissionBtn.setOnClickListener {
+            smsTask()
         }
 
         return root

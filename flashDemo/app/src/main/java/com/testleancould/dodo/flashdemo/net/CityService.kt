@@ -1,8 +1,8 @@
 package com.testleancould.dodo.flashdemo.net
 
 import com.testleancould.dodo.flashdemo.bean.CityBean
-import io.reactivex.Observable
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by adamDeng on 2019/10/28

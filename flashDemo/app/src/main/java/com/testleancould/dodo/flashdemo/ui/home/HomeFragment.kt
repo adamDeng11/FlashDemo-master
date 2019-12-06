@@ -1,32 +1,19 @@
 package com.testleancould.dodo.flashdemo.ui.home
 
-import android.graphics.Color
 import android.os.Bundle
-import android.os.Message
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.paging.PagedList
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.testleancould.dodo.flashdemo.R
-import com.testleancould.dodo.flashdemo.adapter.MessageAdapter
 import com.testleancould.dodo.flashdemo.ui.fragment.JokeFragment
 import com.testleancould.dodo.flashdemo.ui.fragment.NewsFragment
 import com.testleancould.dodo.flashdemo.ui.fragment.PhotoFragment
 import com.testleancould.dodo.flashdemo.ui.fragment.WeatherFragment
-import com.testleancould.dodo.flashdemo.viewmodel.MessageViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_news.*
-import java.util.ArrayList
 
 class HomeFragment : Fragment() {
 
@@ -75,6 +62,7 @@ class HomeFragment : Fragment() {
             }
         })
         viewPager=root.findViewById(R.id.mViewPager)
+        viewPager.offscreenPageLimit=4
         //fragment嵌套fragment要用childFragmentManager获得fragment管理器
         viewPager.adapter = object : FragmentPagerAdapter(childFragmentManager) {
             override fun getItem(position: Int): Fragment {

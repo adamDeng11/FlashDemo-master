@@ -48,7 +48,7 @@ class PhotoAdapter : PagedListAdapter<Photo.ResultBean, PhotoAdapter.VH>(resultB
         val resultBean = getItem(position)
 
         context?.let {
-            GlideApp.with(it).load(resultBean!!.img)
+            GlideApp.with(it).load(resultBean?.img)
                 .error(R.mipmap.photo_error)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(holder.photo)

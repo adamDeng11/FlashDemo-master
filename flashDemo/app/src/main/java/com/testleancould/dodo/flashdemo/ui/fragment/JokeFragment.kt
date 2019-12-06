@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.testleancould.dodo.flashdemo.R
-import kotlinx.android.synthetic.main.fragment_joke.*
-import android.webkit.WebViewClient
-
 
 
 /**

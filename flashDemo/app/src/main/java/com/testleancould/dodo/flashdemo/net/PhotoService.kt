@@ -1,6 +1,5 @@
 package com.testleancould.dodo.flashdemo.net
 
-import com.testleancould.dodo.flashdemo.bean.Message
 import com.testleancould.dodo.flashdemo.bean.Photo
 import io.reactivex.Observable
 import retrofit2.http.Field

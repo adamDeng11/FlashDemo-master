@@ -4,7 +4,6 @@ import com.testleancould.dodo.flashdemo.bean.Ask
 import com.testleancould.dodo.flashdemo.bean.Robot
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
 import retrofit2.http.POST
 
 /**

@@ -1,2 +1,2 @@
-include ':app', ':weatherview'
+include ':app', ':base', ':playcontrollerview'
 rootProject.name='flashDemo'
